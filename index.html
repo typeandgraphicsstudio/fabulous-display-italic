@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fabulous Display Italic Tester</title>
+
+<style>
+@font-face {
+  font-family: "Fabulous Display Italic";
+  src: url("https://static1.squarespace.com/static/5366ba53e4b06c698128d106/t/69664f6fecade42510722c9b/1768312687862/FabulousDisplayItalic-Regular.woff")
+       format("woff");
+  font-style: italic;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:400&display=swap');
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #000;
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 1.75rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.controls input[type="range"] {
+  width: 110px;
+}
+
+.tester {
+  font-family: "Fabulous Display Italic", serif;
+  font-style: italic;
+  font-size: 72px;
+  line-height: 1.25;
+  letter-spacing: 0em;
+
+  white-space: pre-line;
+  overflow: visible;
+
+  padding-top: 0.05em;
+  padding-bottom: 0.3em;
+
+  outline: none;
+  cursor: text;
+
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-feature-settings: "liga" 1, "clig" 1, "dlig" 1, "calt" 1;
+}
+
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+.dark .tester {
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="controls">
+    <label>
+      Size
+      <input type="range" min="40" max="150" value="72" id="size">
+      <span id="sizeVal">72</span>px
+    </label>
+
+    <label>
+      Tracking
+      <input type="range" min="-0.05" max="0.3" step="0.01" value="0" id="track">
+      <span id="trackVal">0</span>em
+    </label>
+
+    <label>
+      <input type="checkbox" id="dark">
+      Dark background
+    </label>
+  </div>
+
+  <div
+    id="box"
+    class="tester"
+    contenteditable="true"
+    spellcheck="false"
+  >
+Fabulous Display Italic reveals character through elegant motion,
+combining expressiveness with refined typographic control.
+  </div>
+
+</div>
+
+<script>
+const box = document.getElementById("box");
+const size = document.getElementById("size");
+const track = document.getElementById("track");
+const dark = document.getElementById("dark");
+
+const sizeVal = document.getElementById("sizeVal");
+const trackVal = document.getElementById("trackVal");
+
+size.oninput = () => {
+  box.style.fontSize = size.value + "px";
+  sizeVal.textContent = size.value;
+};
+
+track.oninput = () => {
+  box.style.letterSpacing = track.value + "em";
+  trackVal.textContent = track.value;
+};
+
+dark.onchange = () => {
+  document.body.classList.toggle("dark");
+};
+</script>
+
+</body>
+</html>

@@ -7,36 +7,44 @@
 <title>Fabulous Display Italic Tester</title>
 
 <style>
+/* Prevent iframe scrollbars */
+html, body {
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Font */
 @font-face {
   font-family: "Fabulous Display Italic";
   src: url("https://static1.squarespace.com/static/5366ba53e4b06c698128d106/t/69664f6fecade42510722c9b/1768312687862/FabulousDisplayItalic-Regular.woff")
        format("woff");
   font-style: italic;
+  font-weight: normal;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:400&display=swap');
 
+/* Page */
 body {
-  margin: 0;
   background: #ffffff;
   color: #000;
   font-family: 'Montserrat', system-ui, sans-serif;
-  overflow: hidden;
 }
 
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.25rem 1rem 1.75rem;
+  padding: 1.25rem 1rem 1.5rem;
 }
 
+/* Controls */
 .controls {
   display: flex;
   gap: 1.25rem;
   align-items: center;
   font-size: 13px;
   letter-spacing: 0.02em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .controls label {
@@ -50,6 +58,7 @@ body {
   width: 110px;
 }
 
+/* Tester */
 .tester {
   font-family: "Fabulous Display Italic", serif;
   font-style: italic;
@@ -70,6 +79,7 @@ body {
   font-feature-settings: "liga" 1, "clig" 1, "dlig" 1, "calt" 1;
 }
 
+/* Dark mode */
 .dark {
   background: #000;
   color: #fff;
@@ -109,7 +119,9 @@ body {
     class="tester"
     contenteditable="true"
     spellcheck="false"
-  > Fabulous Display Italic
+  >
+Fabulous Display Italic reveals character through elegant motion,
+combining expressiveness with refined typographic control.
   </div>
 
 </div>
@@ -139,9 +151,4 @@ dark.onchange = () => {
 </script>
 
 </body>
-
 </html>
-
-
-
-
